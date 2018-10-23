@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<script src="echarts.js"></script>
+<script src="jquery.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0UqXGL98FSmi22w2Rl6HK56I"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
+<script type="text/javascript" src="infobox.js"></script>
+<script>
+    function show1() {
+        document.getElementById('img1').style.display='block';
+    }
+    function hide1() {
+        document.getElementById('img1').style.display='none';
+    }
+    function test1() {
+        var isChecked = $('#bnt1').is(":checked");
+        if (!isChecked) {
+            show1();
+            hide2();
+            hide3();
+            hide4();
+            hide5();
+            randar5();
+        }
+    }
+    function show2() {
+        document.getElementById('img2').style.display='block';
+    }
+    function hide2() {
+        document.getElementById('img2').style.display='none';
+    }
+    function test2() {
+        var isChecked = $('#bnt2').is(":checked");
+        if (!isChecked) {
+            show2();
+            hide1();
+            hide3();
+            hide4();
+            hide5();
+            randar2();
+        }
+    }
+    function show3() {
+        document.getElementById('img3').style.display='block';
+    }
+    function hide3() {
+        document.getElementById('img3').style.display='none';
+    }
+    function test3() {
+        var isChecked = $('#bnt3').is(":checked");
+        if (!isChecked) {
+            show3();
+            hide1();
+            hide2();
+            hide4();
+            hide5();
+            randar3();
+        }
+    }
+    function show4() {
+        document.getElementById('img4').style.display='block';
+    }
+    function hide4() {
+        document.getElementById('img4').style.display='none';
+    }
+    function test4() {
+        var isChecked = $('#bnt4').is(":checked");
+        if (!isChecked) {
+            show4();
+            hide1();
+            hide2();
+            hide3();
+            hide5();
+            randar4();
+        }
+    }
+    function show5() {
+        document.getElementById('img5').style.display='block';
+    }
+    function hide5() {
+        document.getElementById('img5').style.display='none';
+    }
+    function test5() {
+        var isChecked = $('#bnt5').is(":checked");
+        if (!isChecked) {
+            show5();
+            hide1();
+            hide2();
+            hide3();
+            hide4();
+            randar();
+        }
+    }
+</script>
+<style type="text/css">
+    img#img1{
+        position: absolute;
+        display:none;
+        margin-top: -60px;
+        margin-left: 0;
+        z-index: -1;
+    }
+    img#img2{
+        position: absolute;
+        display:none;
+        margin-top: -60px;
+        margin-left: 0;
+        z-index: -1;
+    }
+    img#img3{
+        position: absolute;
+        display:none;
+        margin-top: -60px;
+        margin-left: 0;
+        z-index: -1;
+    }
+    img#img4{
+        position: absolute;
+        display:none;
+        margin-top: -60px;
+        margin-left: 0;
+        z-index: -1;
+    }
+    img#img5{
+        position: absolute;
+        display:none;
+        margin-top: -40px;
+        margin-left: 0;
+        z-index: -1;
+    }
+    img#circle{
+        position: absolute;
+        margin-top: 320px;
+        margin-left: -85px;
+        z-index: 1;
+    }
+    .anchorBL{display:none}
+    html {
+        height: 90%;
+    }
+    body {
+        height: 90%;
+        background:url("images/横版bg1.png");
+        background-size: cover;
+    }
+    .main{
+        width: 100%;
+        height: 90%;
+        position: fixed;
+        left:30%;
+        margin-left:-410px;
+        top:0;
+    }
+    #main1{
+        float: left;
+        margin-left:50px;
+
+    }
+    #main2{
+        float: left;
+    }
+    #main3{
+        float: left;
+        margin-left:-20px;
+
+    }
+    #main_1{
+        float: left;
+        margin-left:50px;
+        margin-top:-10px;
+        /*border: 1px solid red;*/
+    }
+    #main_2{
+        float: left;
+        margin-left:350px;
+        margin-top:-210px;
+        /*border: 1px solid red;*/
+
+    }
+    #main_3{
+        float: left;
+        margin-left:50px;
+        margin-top:10px;
+        /*border: 1px solid red;*/
+
+    }
+    #main_4{
+        float: left;
+        margin-left:350px;
+        margin-top:-200px;
+        /*border: 1px solid red;*/
+
+    }
+    #main4{
+        float: left;
+    }
+    #main5{
+        float: left;
+
+    }
+    #main6{
+        float: left;
+        margin-top:160px;
+
+    }
+    #button{
+        float: left;
+        margin-left:150px;
+        margin-top:-100px;
+    }
+    #main_6{
+        float: left;
+        /*border: 1px solid red;*/
+        position: absolute;
+        left: 630px;
+        top:260px;
+        z-index: -1;
+    }
+    #top{
+        position: absolute;
+        bottom: 243px;
+        left: 10px;
+    }
+    #bottom{
+        position: absolute;
+        bottom: -78px;
+        left: 7px;
+    }
+    #main_41{
+
+        position: absolute;
+        bottom: -74px;
+        left: 7px;
+    }
+    #main44{
+        height: 150px;
+        width: 290px;
+        /*border: 1px solid red;*/
+        position: absolute;
+        top:600px;
+        left: 495px;
+        color: #08e4ff;
+    }
+</style>
+<body >
+<div class="main">
+    <div id="main_name" style="width: 100%;height:8.6%;">
+    </div>
+    <div id="main1" style="width: 30%;height:45%;"></div>
+    <div id="main2" align="center" style="width: 20%;height:50%;"><img id="circle" src="images/圈1.png"  width="255" height="116" align="center"></div>
+    <div id="main3" style="width: 45%;height:60%;">
+        <div id="main_1" style="width: 50%;height:50%;"></div>
+        <div id="main_2" style="width: 50%;height:50%;"></div>
+        <div id="main_3" style="width: 50%;height:50%;"></div>
+        <div id="main_4" style="width: 50%;height:50%;"></div>
+    </div>
+    <div id="main44"></div>
+    <div id="main4" style="width: 24%;height: 343px;">
+        <div id="main_41" style="width: 427px;height: 342px;"></div>
+        <div id="top"><img src="images/mask_top.png" width="425px" height="24px"></div>
+        <div id="bottom"><img src="images/mask_bot.png" width="428px" height="25px"></div>
+    </div>
+    <div id="main5" style="width: 26%;height: 40%"></div>
+    <div id="main6" style="width: 45%;height: 40%">
+        <div id="button" style="width: 20%;height:100%;">
+            <input id="bnt1" style="outline:none;color:#08e4ff;font-size:15px;font-weight:bold;font-family:'微软雅黑 Light';border:none ;background-color: transparent; "type="button"onclick="this.style.fontWeight='bold';this.style.fontSize='18px';test1()"   value="支付偏好"  /></br></br>
+            <img src="images/指针1.png" id="img1" style="width: 130px;" />
+            <input id="bnt2" style="outline:none;color:#08e4ff;font-size:15px;font-weight:bold;font-family:'微软雅黑 Light';border:none ;background-color: transparent; "type="button"onclick="this.style.fontWeight='bold';this.style.fontSize='18px';test2()"  value="影视偏好"  /></br></br>
+            <img src="images/指针2.png" id="img2" style="width: 130px;" />
+            <input id="bnt3" style="outline:none;color:#08e4ff;font-size:15px;font-weight:bold;font-family:'微软雅黑 Light';border:none ;background-color: transparent; "type="button"onclick="this.style.fontWeight='bold';this.style.fontSize='18px';test3()"   value="体育偏好" /></br></br>
+            <img src="images/指针3.png" id="img3" style="width: 130px;" />
+            <input id="bnt4" style="outline:none;color:#08e4ff;font-size:15px;font-weight:bold;font-family:'微软雅黑 Light';border:none ;background-color: transparent; "type="button"onclick="this.style.fontWeight='bold';this.style.fontSize='18px';test4()"    value="音乐偏好"  /></br></br>
+            <img src="images/指针4.png" id="img4" style="width: 130px;" />
+            <input id="bnt5" style="outline:none;color:#08e4ff;font-size:15px;font-weight:bold;font-family:'微软雅黑 Light';border:none ;background-color: transparent; "type="button"onclick="this.style.fontWeight='bold';this.style.fontSize='18px';test5()"    value="游戏偏好"  />
+            <img src="images/指针5.png" id="img5" style="width: 130px;" />
+        </div>
+        <div id="main_6" style="width: 70%;height:100%;"></div>
+    </div>
+</div>
+
+
+<!--词云图脚下光圈闪动事件-->
+<script>
+    var img = new Array(24);  // 创建数组
+    var nums = 0;
+    if(document.images)
+    {
+        for(i = 1; i <= 24; i++)
+        {
+            img[i] = new Image();  // 创建对象实例
+            img[i].src = "images/圈" + i + ".png"; // 设置所有图片的路径及名称
+        }
+    }
+    function fort()  // 定义图片切换函数
+    {
+        nums ++;
+        document.images[0].src= img[nums].src;
+        if(nums == 24)
+            nums = 0;
+    }
+    function slide()  // 每隔1秒连续不断的调用fort()函数
+    {
+        setInterval("fort()", 200);
+    }
+    slide()
+</script>
+<!--柱形图-->
+<script>
+    var myChart = echarts.init(document.getElementById('main1'));
+    data = {
+        "智能家电":{
+            "2017年2季度":{
+                "电信电视":78,
+                "光纤WiFi":65,
+                "水电煤":73
+            },
+            "2017年3季度":{
+                "电信电视":27,
+                "光纤WiFi":83,
+                "水电煤":66
+            },
+            "2017年4季度":{
+                "电信电视":65,
+                "光纤WiFi":56,
+                "水电煤":87
+            },
+        },
+        "智能共享":{
+            "2017年2季度":{
+                "洗衣机":95,
+                "空调":65,
+                "停车位":19
+            },
+            "2017年3季度":{
+                "洗衣机":74,
+                "空调":49,
+                "停车位":22
+            },
+            "2017年4季度":{
+                "洗衣机":36,
+                "空调":17,
+                "停车位":93
+            },
+        },
+        "智能控制":{
+            "2017年2季度":{
+                "门锁":14,
+                "烟感":26,
+                "门磁感应":51
+            },
+            "2017年3季度":{
+                "门锁":12,
+                "烟感":61,
+                "门磁感应":95
+            },
+            "2017年4季度":{
+                "门锁":97,
+                "烟感":44,
+                "门磁感应":31
+            }
+        }
+    };
+
+    function getData(data, group, year, band)
+    {
+        var res = [];
+        res.push(data[group]["2017年2季度"][band]);
+        res.push(data[group]["2017年3季度"][band]);
+        res.push(data[group]["2017年4季度"][band]);
+        return res;
+    }
+
+    option = {
+        baseOption:{
+            timeline:{
+                axisType: "category",
+                data:[ "智能控制", "智能共享","智能家电"],
+                lineStyle:{color:"rgb(10, 217, 227)"},
+                checkpointStyle:{color:"rgb(10, 217, 227)", borderColor:"rgb(10, 217, 227)"},
+                itemStyle:{
+                    normal:{
+                        borderColor:"#08e4ff", color:"#08e4ff"
+                    },
+                    emphasis:{
+                        borderColor:"#08e4ff", color:"#08e4ff"
+                    }
+                },                label:{normal:{
+                    fontWeight:'bold',
+                    color:"#08e4ff"
+                }},
+                autoPlay: true,
+            },
+            textStyle:{
+                color:"#08e4ff",
+                fontWeight:'bold'
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {type : 'shadow'}
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '20%',
+                top:'25%',
+                containLabel: true
+            },
+            xAxis : [{
+                type : 'category',
+                data : ['2017年2季度', '2017年3季度', '2017年4季度'],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }],
+            yAxis: [
+                {
+                    splitLine : {
+                        show:false,
+                        lineStyle: {
+                            width: 1
+                        }
+                    },
+                    axisLabel: {
+                        textStyle:{
+                            color:'#08e4ff',
+                            fontWeight:'bold'
+                        }
+                    },
+                    nameTextStyle:{
+                        color:'#08e4ff',
+                        fontWeight:'bold'
+                    },
+                    type: 'value',
+                    name: '数量'
+                }
+            ],
+        },
+        options:[
+            {
+                legend: {
+                    left:'center',
+                    top:'15%',
+                    data: ['门锁', '烟感', '门磁感应'],
+                    textStyle:{
+                        color:"#08e4ff",
+                        fontWeight:'bold'
+
+                    },
+                },
+                series : [
+                    {
+                        name:'门锁',
+                        type:'bar',
+                        data:getData(data, "智能控制", "2017年2季度", "门锁"),
+                        itemStyle:{normal:{color:"rgb(10, 217, 227)"}}
+                    },
+                    {
+                        name:'烟感',
+                        type:'bar',
+                        data:getData(data, "智能控制", "2017年3季度", "烟感"),
+                        itemStyle:{normal:{color:"rgb(7, 114, 130)"}}
+                    },
+                    {
+                        name:'门磁感应',
+                        type:'bar',
+                        data:getData(data, "智能控制", "2017年4季度", "门磁感应"),
+                        itemStyle:{normal:{color:"08e4ff"}}
+                    }]
+            },
+            {
+                legend: {
+                    left:'center',
+                    top:'15%',
+                    data: ['洗衣机', '空调', '停车位'],
+                    textStyle:{
+                        color:"#08e4ff",
+                        fontWeight:'bold'
+                    },
+                },
+                series : [
+                    {
+                        name:'洗衣机',
+                        type:'bar',
+                        data:getData(data, "智能共享", "2017年2季度", "洗衣机"),
+                        itemStyle:{normal:{color:"rgb(10, 217, 227)"}}
+                    },
+                    {
+                        name:'空调',
+                        type:'bar',
+                        data:getData(data, "智能共享", "2017年3季度", "空调"),
+                        itemStyle:{normal:{color:"rgb(7, 114, 130)"}}
+                    },
+                    {
+                        name:'停车位',
+                        type:'bar',
+                        data:getData(data, "智能共享", "2017年4季度", "停车位"),
+                        itemStyle:{normal:{color:"rgb(3, 75, 89)"}}
+                    }]
+            },
+            {
+                legend: {
+                    center:'center',
+                    top:'15%',
+                    data: ['电信电视', '光纤WiFi', '水电煤'],
+                    textStyle:{
+                        color:"#08e4ff",
+                        fontWeight:'bold'
+
+                    },
+                },
+                series : [
+                    {
+                        name:'电信电视',
+                        type:'bar',
+                        data:getData(data, "智能家电", "2017年2季度", "电信电视"),
+                        itemStyle:{normal:{color:"rgb(10, 217, 227)"}}
+                    },
+                    {
+                        name:'光纤WiFi',
+                        type:'bar',
+                        data:getData(data, "智能家电", "2017年3季度", "光纤WiFi"),
+                        itemStyle:{normal:{color:"rgb(7, 114, 130)"}}
+                    },
+                    {
+                        name:'水电煤',
+                        type:'bar',
+                        data:getData(data, "智能家电", "2017年4季度", "水电煤"),
+                        itemStyle:{normal:{color:"rgb(3, 75, 89)"}}
+                    }]
+            },
+            ]
+    };
+    myChart.setOption(option);
+</script>
+<!--扇形图1-->
+<script>
+    var myChart31 = echarts.init(document.getElementById('main_1'));
+    option31 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)" //提示框内容
+        },
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        }, //透视表
+        series : [
+            {
+                name:'租户职业',
+                type:'pie',
+                radius : '90%', //扇形半径大小
+                center: ['50%', '50%'], //扇形中心位置
+                data:[
+                    {value:335, name:'教师'},
+                    {value:310, name:'学生'},
+                    {value:274, name:'白领'},
+                    {value:235, name:'医生'},
+                    {value:400, name:'工程师'}
+                ].sort(function (a, b) { return a.value - b.value; }), //按数值大小逆时针排序
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#08e4ff'
+                        },
+                        fontSize:12,
+                        fontWeight:'bold'
+
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#08e4ff'
+                        },
+                        smooth: 0.2, //标签线弯曲程度
+                        length: 0,  //标签线长度
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#08e4ff',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+                animationType: 'scale', //初始打开时图表的动画效果为缩放
+                animationEasing: 'elasticOut', //初始动画的缓动效果
+                animationDelay: function () {
+                    return Math.random() * 200;
+                } //初始动画的延迟
+            },
+        ]
+    };
+    currentIndex31 = -1;
+    setInterval(function () {
+        var dataLen = option31.series[0].data.length;
+        // 取消之前高亮的图形
+        myChart31.dispatchAction({
+            type: 'downplay',
+            seriesIndex: 0,
+            dataIndex: currentIndex31
+        });
+        currentIndex31 = (currentIndex31 + 1) % dataLen;
+        // 高亮当前图形
+        myChart31.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 0,
+            dataIndex: currentIndex31
+        });
+        // 显示 tooltip
+//        myChart31.dispatchAction({
+//            type: 'showTip',
+//            seriesIndex: 0,
+//            dataIndex: currentIndex31
+//        });
+    }, 1000);
+
+    myChart31.setOption(option31);
+</script>
+<script>
+    var myChart32 = echarts.init(document.getElementById('main_2'));
+    option32 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)" //提示框内容
+        },
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        }, //透视表
+        series : [
+            {
+                name:'租户年龄分布',
+                type:'pie',
+                center: ['50%', '48%'],
+                radius: ['58%', '80%'],
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#08e4ff'
+                        },
+                        fontSize:12,
+                        fontWeight:'bold'
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#08e4ff'
+                        },
+                        smooth: 0.1,
+                        length: 10,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#08e4ff',
+                        shadowBlur: 100,
+                        shadowColor: 'rgba(0, 0, 0, 0.9)'
+                    }
+                },
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                data:[
+                    {
+                        value:335,
+                        name:'18~20',
+                        itemStyle: {
+                            normal: {
+                                color: '#3aebff'
+                            }
+                        }
+                    },
+                    {
+                        value:310,
+                        name:'23~30',
+                        itemStyle: {
+                            normal: {
+                                color: '#19c5d9'
+                            }
+                        }
+                    },
+                    {
+                        value:274,
+                        name:'31~40',
+                        itemStyle: {
+                            normal: {
+                                color: '#0caabc'
+                            }
+                        }
+                    },
+                    {
+                        value:235,
+                        name:'41~50',
+                        itemStyle: {
+                            normal: {
+                                color: '#0492a2'
+                            }
+                        }
+                    },
+                    {
+                        value:400,
+                        name:'51+',
+                        itemStyle: {
+                            normal: {
+                                color: '#018293'
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                name:'租户性别',
+                type:'pie',
+                selectedMode: 'single',
+                center: ['50%', '48%'],
+                radius: ['0%', '40%'],
+                label: {
+                    normal: {
+//                        show:false,
+                        position:'inside',
+                        formatter: '{d}%',
+                        textStyle: {
+                            color: '#020e1e'
+                        },
+                        fontSize:7,
+//                        fontWeight:'bold'
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#08e4ff'
+                        },
+                        smooth: 0.1,
+                        length: 10,
+                    }
+                },
+                animationType: 'scale', //初始打开时图表的动画效果为缩放
+                animationEasing: 'elasticOut', //初始动画的缓动效果
+                animationDelay: function () {
+                    return Math.random() * 200;
+                }, //初始动画的延迟
+                data:[
+                    {
+                        value:240,
+                        name:'女性',
+                        itemStyle: {
+                            normal: {
+                                color: '#19c5d9'
+                            }
+                        }
+                    },
+                    {
+                        value:310,
+                        name:'男性',
+                        itemStyle: {
+                            normal: {
+                                color: '#0caabc'
+                            }
+                        }
+                    },
+                ],
+            },
+        ]
+    };
+    currentIndex32 = -1;
+    setInterval(function () {
+        var dataLen = option32.series[0].data.length;
+        // 取消之前高亮的图形
+        myChart32.dispatchAction({
+            type: 'downplay',
+            seriesIndex: 0,
+            dataIndex: currentIndex32
+        });
+        currentIndex32 = (currentIndex32 + 1) % dataLen;
+        // 高亮当前图形
+        myChart32.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 0,
+            dataIndex: currentIndex32
+        });
+        // 显示 tooltip
+//        myChart32.dispatchAction({
+//            type: 'showTip',
+//            seriesIndex: 0,
+//            dataIndex: currentIndex32
+//        });
+    }, 1000);
+
+    myChart32.setOption(option32);
+</script>
+<script>
+    var myChart33 = echarts.init(document.getElementById('main_3'));
+    option33 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)" //提示框内容
+        },
+        visualMap: {
+            show: false,
+            min: 4,
+            max: 96,
+            inRange: {
+                colorLightness: [0.2, 0.6]
+            }
+        }, //透视表
+        series : [
+            {
+                name: '租户信用',
+                type: 'pie',
+                radius: ['57%', '80%'],
+                center: ['50%', '50%'],
+                data:[
+                    {
+                        value:96,
+                        name:'750+',
+                        itemStyle: {
+                            normal: {
+                                color: '#018293'
+                            }
+                        }
+                    },
+                    {
+                        value:50,
+                        name:'700-750',
+                        itemStyle: {
+                            normal: {
+                                color: '#089eaf'
+                            }
+                        }
+                    },
+                    {
+                        value:30,
+                        name:'650-700',
+                        itemStyle: {
+                            normal: {
+                                color: '#10b5c8'
+                            }
+                        }
+                    },
+                    {
+                        value:20,
+                        name:'600-650',
+                        itemStyle: {
+                            normal: {
+                                color: '#28d6ea'
+                            }
+                        }
+                    },
+                    {
+                        value:4,
+                        name:'600-',
+                        itemStyle: {
+                            normal: {
+                                color: '#3aebff'
+                            }
+                        }
+                    },
+                ],
+                label: {
+                    normal: {
+//                        formatter: '{d}%',
+                        textStyle: {
+                            color: '#08e4ff'
+                        },
+                        fontSize:9,
+                        fontWeight:'bold'
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#08e4ff'
+                        },
+                        smooth: 0.1,
+                        length: 10,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#08e4ff',
+                        shadowBlur: 100,
+                        shadowColor: 'rgba(0, 0, 0, 0.9)'
+                    }
+                },
+                animationType: 'scale', //初始打开时图表的动画效果为缩放
+                animationEasing: 'elasticOut', //初始动画的缓动效果
+                animationDelay: function () {
+                    return Math.random() * 200;
+                } //初始动画的延迟
+            },
+        ]
+    };
+    currentIndex33 = -1;
+    setInterval(function () {
+        var dataLen = option33.series[0].data.length;
+        // 取消之前高亮的图形
+        myChart33.dispatchAction({
+            type: 'downplay',
+            seriesIndex: 0,
+            dataIndex: currentIndex33
+        });
+        currentIndex33 = (currentIndex33 + 1) % dataLen;
+        // 高亮当前图形
+        myChart33.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 0,
+            dataIndex: currentIndex33
+        });
+        // 显示 tooltip
+//        myChart33.dispatchAction({
+//            type: 'showTip',
+//            seriesIndex: 0,
+//            dataIndex: currentIndex33
+//        });
+    }, 1000);
+
+    myChart33.setOption(option33);
+</script>
+<script>
+    var myChart34 = echarts.init(document.getElementById('main_4'));
+    option34 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)" //提示框内容
+        },
+//        visualMap: {
+//            show: false,
+//            min: 4,
+//            max: 96,
+//            inRange: {
+//                colorLightness: [0.2, 0.6]
+//            }
+//        }, //透视表
+        series : [
+            {
+                name:'租户职称行业',
+                type:'pie',
+                selectedMode: 'single',
+                center: ['49%', '50%'],
+                radius: [0, '40%'],
+                label: {
+                    normal: {
+                        show:false
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#08e4ff',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.9)'
+                    }
+                },
+                data:[
+                    {value:335, name:'医疗业', selected:true},
+                    {value:679, name:'教育业'},
+                    {value:1548, name:'IT业'}
+                ]
+            },
+            {
+                name:'租户职称',
+                type:'pie',
+                center: ['49%', '50%'],
+                radius: ['58%', '80%'],
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#08e4ff'
+                        },
+                        fontSize:12,
+                        fontWeight:'bold'
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#08e4ff'
+                        },
+                        smooth: 0.1,
+                        length: 10,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                    }
+                },
+                data:[
+                    {
+                        value:335,
+                        name:'技师',
+                        itemStyle: {
+                            normal: {
+                                color: '#3aebff'
+                            }
+                        }
+                    },
+                    {
+                        value:310,
+                        name:'讲师',
+                        itemStyle: {
+                            normal: {
+                                color: '#28d6ea'
+                            }
+                        }
+                    },
+                    {
+                        value:234,
+                        name:'主任',
+                        itemStyle: {
+                            normal: {
+                                color: '#19c5d9'
+                            }
+                        }
+                    },
+                    {
+                        value:135,
+                        name:'教授',
+                        itemStyle: {
+                            normal: {
+                                color: '#10b5c8'
+                            }
+                        }
+                    },
+                    {
+                        value:1048,
+                        name:'工程师',
+                        itemStyle: {
+                            normal: {
+                                color: '#0caabc'
+                            }
+                        }
+                    },
+                    {
+                        value:251,
+                        name:'分析师',
+                        itemStyle: {
+                            normal: {
+                                color: '#089eaf'
+                            }
+                        }
+                    },
+                    {
+                        value:147,
+                        name:'文案',
+                        itemStyle: {
+                            normal: {
+                                color: '#0492a2'
+                            }
+                        }
+                    },
+                    {
+                        value:102,
+                        name:'其它',
+                        itemStyle: {
+                            normal: {
+                                color: '#018293'
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    };
+    currentIndex34 = -1;
+    setInterval(function () {
+        var dataLen = option34.series[1].data.length;
+        // 取消之前高亮的图形
+        myChart34.dispatchAction({
+            type: 'downplay',
+            seriesIndex: 1,
+            dataIndex: currentIndex34
+        });
+        currentIndex34 = (currentIndex34 + 1) % dataLen;
+        // 高亮当前图形
+        myChart34.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 1,
+            dataIndex: currentIndex34
+        });
+        // 显示 tooltip
+//        myChart34.dispatchAction({
+//            type: 'showTip',
+//            seriesIndex: 1,
+//            dataIndex: currentIndex34
+//        });
+    }, 1000);
+
+    myChart34.setOption(option34);
+</script>
+<!--百度地图-->
+<!--打字效果-->
+<script>
+    var str = '基于校园住户在公租房内智能硬件使用所产生的数据，通过汇聚和标签化，形成用户数据画像，包括个体信息、网络兴趣、智能硬件偏好等，有助于提升校方的精细管理和后续扩展应用与服务。           ';
+    var i = 0;
+    function typing(){
+        var divTyping = document.getElementById('main44');
+        if (i <= str.length) {
+            divTyping.innerHTML = str.slice(0,i++) + '▇';
+            if(i == str.length){
+                i = 0;
+            }
+        }
+    }
+    function auto() {
+        setInterval("typing()", 100);
+    }
+    auto();
+</script>
+<script>
+    var bmap = new BMap.Map("main_41",{enableMapClick: false}); //禁止poi点击事件
+    bmap.enableScrollWheelZoom(); //允许滑动
+    bmap.setMapStyle({
+        styleJson: [
+            {
+                "featureType": "land",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#020e1e"
+                }
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#05162e",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#162340",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "all",
+                "elementType": "labels",
+                "stylers": {
+                    "color": "#ffffff"
+                }
+            },
+            {
+                "featureType": "all",
+                "elementType": "labels.text.stroke",
+                "stylers": {
+                    "color": "#3d85c6",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "manmade",
+                "elementType": "geometry.fill",
+                "stylers": {
+                    "color": "#040d1e",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "boundary",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#001f30",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "building",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#010f20",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "green",
+                "elementType": "geometry.fill",
+                "stylers": {
+                    "color": "#010f20",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "subway",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+        ]
+    }); //地图样式
+    var pointArray = [];
+    var pNW = { lat: 59.0, lng: 73.0 }
+    var pNE = { lat: 59.0, lng: 136.0 }
+    var pSE = { lat: 3.0, lng: 136.0 }
+    var pSW = { lat: 3.0, lng: 73.0 }
+    //向数组中添加一次闭合多边形，并将西北角再加一次作为之后画闭合区域的起点
+    var pArray = [];
+    pArray.push(pNW);
+    pArray.push(pSW);
+    pArray.push(pSE);
+    pArray.push(pNE);
+    pArray.push(pNW);
+    //大的遮罩层
+    points_bianjie = [];
+    var data_bianjie = {'data':
+        [
+            [73.0,59.0],
+            [136.0,59.0],
+            [136.0,3.0],
+            [73.0,3.0]
+        ]
+    }
+    //把数据转为百度地图API标准样式
+    for(var i=0;i<data_bianjie.data.length;i++){
+        var point = new BMap.Point(data_bianjie.data[i][0], data_bianjie.data[i][1]);
+        points_bianjie.push(point)
+    }
+    //小的遮罩层
+    points4 = [];
+    var data_zhongda = {'data':
+        [
+            [113.297589,23.103741],
+            [113.29705,23.103509],
+            [113.296619,23.103342],
+            [113.296835,23.102711],
+            [113.29705,23.10188],
+            [113.296799,23.101514],
+            [113.296619,23.101115],
+            [113.296008,23.100916],
+            [113.296188,23.100317],
+            [113.296763,23.099786],
+            [113.297302,23.09952],
+            [113.297949,23.099387],
+            [113.298596,23.09932],
+            [113.298811,23.09922],
+            [113.298901,23.099087],
+            [113.299494,23.099303],
+            [113.300177,23.09947],
+            [113.301255,23.099802],
+            [113.301919,23.099636],
+            [113.301758,23.098655],
+            [113.30041,23.098805],
+            [113.300302,23.098705],
+            [113.300195,23.09824],
+            [113.304363,23.097159],
+            [113.305099,23.097342],
+            [113.304866,23.098323],
+            [113.305728,23.098622],
+            [113.3058,23.099021],
+            [113.306375,23.09937],
+            [113.306087,23.100467],
+            [113.306806,23.100567],
+            [113.307309,23.100484],
+            [113.307309,23.100268],
+            [113.309537,23.100085],
+            [113.310687,23.100982],
+            [113.310489,23.101697],
+            [113.310938,23.10188],
+            [113.310884,23.10306],
+            [113.311513,23.103259],
+            [113.311513,23.104705],
+            [113.311801,23.104738],
+            [113.311603,23.106899],
+            [113.311118,23.107331],
+            [113.311064,23.10788],
+            [113.31083,23.10788],
+            [113.31083,23.107497],
+            [113.310274,23.107464],
+            [113.30783,23.107763],
+            [113.307776,23.108827],
+            [113.306662,23.10901],
+            [113.30659,23.109724],
+            [113.305764,23.109841],
+            [113.305441,23.107713],
+            [113.305099,23.107564],
+            [113.304039,23.107514],
+            [113.304255,23.106168],
+            [113.304129,23.106018],
+            [113.304039,23.105536],
+            [113.303518,23.105553],
+            [113.301829,23.10429],
+            [113.301758,23.104024],
+            [113.299135,23.104439]]
+    }
+    for(var i=0;i<data_zhongda.data.length;i++){
+        var point = new BMap.Point(data_zhongda.data[i][0], data_zhongda.data[i][1]);
+        points4.push(point)
+    }
+    //绘制两个多边形，第一个为大的遮罩层，第二个为小的
+    var polygon = new BMap.Polygon(points_bianjie,{ strokeOpacity: 0.0000001, strokeColor: "#140816", strokeWeight: 0.00001,fillOpacity: 0.0, fillColor: "none"});
+    var polygon2 = new BMap.Polygon(points4,{ strokeWeight: 2, strokeColor: "#089eaf",fillOpacity: 0.5, fillColor: "#142745" });
+    bmap.addOverlay(polygon2);
+    bmap.addOverlay(polygon);
+    //限定显示区域，需要引用api库
+    var path = polygon2.getPath();
+    pointArray = pointArray.concat(path);
+    pArray = pArray.concat(path);
+    pArray.push(pArray[0]);
+    var boundply = new BMap.Polygon(pointArray);
+    BMapLib.AreaRestriction.setBounds(bmap, boundply.getBounds());
+    //调整视野
+    bmap.setViewport(pointArray);
+    //绘制信息窗口
+    var point = new BMap.Point(113.304738,23.103513);
+    var myIcon = new BMap.Icon("images/地标.png", new BMap.Size(42,42));
+    var marker = new BMap.Marker(point,{icon:myIcon});
+    bmap.addOverlay(marker);
+    var html = [
+//        "<h5 style='color: #089eaf;font-family:bold;text-align:center;margin:-2px 0 1px 0;padding:0.2em 0'>中山大学（南校区）</h5>",
+//        "<div style='border-bottom: 2px solid #089eaf;'></div>",
+        "<img  id='imgDemo' src='images/中大.png' width='157px' height='157px' title='中山大学'/>",
+        ,"</ul></div>"
+        ,"</div>"];
+    var infoBox = new BMapLib.InfoBox(bmap,html.join(""),{
+        boxStyle:{
+//            border:'1px solid red',
+            backgroundColor:'none',
+            marginLeft:'-68px',
+            marginBottom:'-7px',
+            width: "157px",
+            height: "157px"
+        }
+    });
+    infoBox.open(marker);
+    marker.addEventListener("click", function(){
+        infoBox.open(marker);
+    });
+</script>
+<!--雷达图-->
+<script >
+    // 基于准备好的dom，初始化echarts实例
+    function randar() {
+        var myChart = echarts.init(document.getElementById('main_6'));
+        var dataBJ = [
+            [91,45,125,34,23],
+            [65,27,78,45,29],
+            [83,60,84,73,27],
+            [109,81,121,68,51],
+            [106,77,114,55,51],
+            [109,81,121,68,51],
+            [106,77,114,55,51],
+            [89,65,78,51,26],
+            [53,33,47,50,17],
+            [80,55,80,75,24],
+            [117,81,124,45,24],
+            [99,71,142,62,42],
+            [95,69,130,74,50],
+            [116,87,131,84,40],
+            [108,80,121,85,37],
+            [134,83,167,57,43],
+            [79,43,107,59,37],
+            [71,46,89,64,25],
+            [97,71,113,88,31],
+            [84,57,91,55,31],
+            [87,63,101,56,41],
+            [104,77,119,73,48],
+            [87,62,100,72,28],
+            [168,128,172,97,56],
+            [65,45,51,39,17],
+            [39,24,38,47,17],
+            [39,24,39,50,19],
+            [93,68,96,79,29],
+            [188,143,197,99,51],
+            [174,131,174,108,50],
+            [187,143,201,89,53]
+        ];
+        var lineStyle = {
+            normal: {
+                width: 1,
+                opacity: 0.5
+            }
+        };
+
+        option = {
+            tooltip:{},
+            title: {
+                left: 'center',
+                textStyle: {
+                    color: '#08e4ff'
+                }
+            },
+            radar: {
+                indicator: [
+                    {name: '王者荣耀', max: 300},
+                    {name: '斗地主', max: 250},
+                    {name: '穿越火线', max: 300},
+                    {name: '英雄杀', max: 150},
+                    {name: '消消乐', max: 200},
+                ],
+                shape: 'circle',
+                splitNumber: 5,
+                radius:100,
+                center:['50%','54%'],
+                name: {
+                    textStyle: {
+                        color: '#08e4ff',
+                        fontWeight:'bold',
+                        fontSize:12,
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: [
+                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                        ].reverse()
+                    }
+                },
+                splitArea: {
+                    show: false
+                }, //坐标轴在 grid 区域中的分隔区域
+                axisLine: {
+                    lineStyle: {
+                        color: '#044b59'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '游戏偏好',
+                    type: 'radar',
+                    lineStyle: lineStyle,
+                    data: dataBJ,
+                    symbol: 'none',
+                    itemStyle: {
+                        normal: {
+                            color: '#08e4ff'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            opacity: 0.1
+                        }
+                    }
+                },
+            ]
+        };
+        //增加一个true可以确保切换图表的时候之前的图表消失。
+        myChart.setOption(option,true);
+    }
+    function randar2() {
+        var myChart = echarts.init(document.getElementById('main_6'));
+        var dataBJ = [
+            [55,9,56,0.46,18,6,1],
+            [25,11,21,0.65,34,9,2],
+            [56,7,63,0.3,14,5,3],
+            [33,7,29,0.33,16,6,4],
+            [42,24,44,0.76,40,16,5],
+            [82,58,90,1.77,68,33,6],
+            [74,49,77,1.46,48,27,7],
+            [78,55,80,1.29,59,29,8],
+            [267,216,280,4.8,108,64,9],
+            [185,127,216,2.52,61,27,10],
+            [39,19,38,0.57,31,15,11],
+            [41,11,40,0.43,21,7,12],
+            [64,38,74,1.04,46,22,13],
+            [108,79,120,1.7,75,41,14],
+            [108,63,116,1.48,44,26,15],
+            [33,6,29,0.34,13,5,16],
+            [94,66,110,1.54,62,31,17],
+            [186,142,192,3.88,93,79,18],
+            [57,31,54,0.96,32,14,19],
+            [22,8,17,0.48,23,10,20],
+            [39,15,36,0.61,29,13,21],
+            [94,69,114,2.08,73,39,22],
+            [99,73,110,2.43,76,48,23],
+            [31,12,30,0.5,32,16,24],
+            [42,27,43,1,53,22,25],
+            [154,117,157,3.05,92,58,26],
+            [234,185,230,4.09,123,69,27],
+            [160,120,186,2.77,91,50,28],
+            [134,96,165,2.76,83,41,29],
+            [52,24,60,1.03,50,21,30],
+            [46,5,49,0.28,10,6,31]
+        ];
+        var lineStyle = {
+            normal: {
+                width: 1,
+                opacity: 0.5
+            }
+        };
+        option = {
+            tooltip:{},
+            title: {
+                left: 'center',
+                textStyle: {
+                    color: '#08e4ff'
+                }
+            },
+            radar: {
+                indicator: [
+                    {name: '电影', max: 300},
+                    {name: '电视剧', max: 250},
+                    {name: '歌剧', max: 300},
+                    {name: '真人秀', max: 5},
+                    {name: '综艺', max: 200},
+                ],
+                shape: 'circle',
+                splitNumber: 5,
+                radius:100,
+                center:['50%','54%'],
+                name: {
+                    textStyle: {
+                        color: '#08e4ff',
+                        fontWeight:'bold',
+                        fontSize:12,
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: [
+                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                        ].reverse()
+                    }
+                },
+                splitArea: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#044b59'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '影视偏好',
+                    type: 'radar',
+                    lineStyle: lineStyle,
+                    data: dataBJ,
+                    symbol: 'none',
+                    itemStyle: {
+                        normal: {
+                            color: '#08e4ff'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            opacity: 0.1
+                        }
+                    }
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option,true);
+    }
+    function randar3() {
+        var myChart = echarts.init(document.getElementById('main_6'));
+        var dataBJ = [
+            [26,37,27,1.163,27,13,1],
+            [85,62,71,1.195,60,8,2],
+            [78,38,74,1.363,37,7,3],
+            [21,21,36,0.634,40,9,4],
+            [41,42,46,0.915,81,13,5],
+            [56,52,69,1.067,92,16,6],
+            [64,30,28,0.924,51,2,7],
+            [55,48,74,1.236,75,26,8],
+            [76,85,113,1.237,114,27,9],
+            [91,81,104,1.041,56,40,10],
+            [84,39,60,0.964,25,11,11],
+            [64,51,101,0.862,58,23,12],
+            [70,69,120,1.198,65,36,13],
+            [77,105,178,2.549,64,16,14],
+            [109,68,87,0.996,74,29,15],
+            [73,68,97,0.905,51,34,16],
+            [54,27,47,0.592,53,12,17],
+            [51,61,97,0.811,65,19,18],
+            [91,71,121,1.374,43,18,19],
+            [73,102,182,2.787,44,19,20],
+            [73,50,76,0.717,31,20,21],
+            [84,94,140,2.238,68,18,22],
+            [93,77,104,1.165,53,7,23],
+            [99,130,227,3.97,55,15,24],
+            [146,84,139,1.094,40,17,25],
+            [113,108,137,1.481,48,15,26],
+            [81,48,62,1.619,26,3,27],
+            [56,48,68,1.336,37,9,28],
+            [82,92,174,3.29,0,13,29],
+            [106,116,188,3.628,101,16,30],
+            [118,50,0,1.383,76,11,31]
+        ];
+        var lineStyle = {
+            normal: {
+                width: 1,
+                opacity: 0.5
+            }
+        };
+        option = {
+            tooltip:{},
+            title: {
+                left: 'center',
+                textStyle: {
+                    color: '#08e4ff'
+                }
+            },
+            radar: {
+                indicator: [
+                    {name: 'NBA', max: 300},
+                    {name: '世界杯', max: 250},
+                    {name: '乒乓球', max: 300},
+                    {name: '健身', max: 5},
+                    {name: '赛车', max: 200},
+                ],
+                shape: 'circle',
+                radius:100,
+                center:['50%','54%'],
+                splitNumber: 5,
+                name: {
+                    textStyle: {
+                        color: '#08e4ff',
+                        fontWeight:'bold',
+                        fontSize:12,
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: [
+                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                        ].reverse()
+                    }
+                },
+                splitArea: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#044b59'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '体育偏好',
+                    type: 'radar',
+                    lineStyle: lineStyle,
+                    data: dataBJ,
+                    symbol: 'none',
+                    itemStyle: {
+                        normal: {
+                            color: '#08e4ff'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            opacity: 0.1
+                        }
+                    }
+                },
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option,true);
+    }
+    function randar4() {
+        var myChart = echarts.init(document.getElementById('main_6'));
+        var dataBJ = [
+            [55,9,56,0.46,18,6,1],
+            [25,11,21,0.65,34,9,2],
+            [56,7,63,0.3,14,5,3],
+            [33,7,29,0.33,16,6,4],
+            [42,24,44,0.76,40,16,5],
+            [82,58,90,1.77,68,33,6],
+            [74,49,77,1.46,48,27,7],
+            [78,55,80,1.29,59,29,8],
+            [267,216,280,4.8,108,64,9],
+            [185,127,216,2.52,61,27,10],
+            [39,19,38,0.57,31,15,11],
+            [41,11,40,0.43,21,7,12],
+            [64,38,74,1.04,46,22,13],
+            [108,79,120,1.7,75,41,14],
+            [108,63,116,1.48,44,26,15],
+            [33,6,29,0.34,13,5,16],
+            [94,66,110,1.54,62,31,17],
+            [186,142,192,3.88,93,79,18],
+            [57,31,54,0.96,32,14,19],
+            [22,8,17,0.48,23,10,20],
+            [39,15,36,0.61,29,13,21],
+            [94,69,114,2.08,73,39,22],
+            [99,73,110,2.43,76,48,23],
+            [31,12,30,0.5,32,16,24],
+            [42,27,43,1,53,22,25],
+            [154,117,157,3.05,92,58,26],
+            [234,185,230,4.09,123,69,27],
+            [160,120,186,2.77,91,50,28],
+            [134,96,165,2.76,83,41,29],
+            [52,24,60,1.03,50,21,30],
+            [46,5,49,0.28,10,6,31]
+        ];
+        var lineStyle = {
+            normal: {
+                width: 1,
+                opacity: 0.5
+            }
+        };
+        option = {
+            tooltip:{},
+            title: {
+                left: 'center',
+                textStyle: {
+                    color: '#08e4ff'
+                }
+            },
+            radar: {
+                indicator: [
+                    {name: '流行', max: 300},
+                    {name: '摇滚', max: 250},
+                    {name: '民谣', max: 300},
+                    {name: '说唱', max: 5},
+                    {name: '古风', max: 200},
+                ],
+                shape: 'circle',
+                radius:100,
+                center:['50%','54%'],
+                splitNumber: 5,
+                name: {
+                    textStyle: {
+                        color: '#08e4ff',
+                        fontWeight:'bold',
+                        fontSize:12,
+
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: [
+                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                        ].reverse()
+                    }
+                },
+                splitArea: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#044b59'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '音乐偏好',
+                    type: 'radar',
+                    lineStyle: lineStyle,
+                    data: dataBJ,
+                    symbol: 'none',
+                    itemStyle: {
+                        normal: {
+                            color: '#08e4ff'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            opacity: 0.1
+                        }
+                    }
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option,true);
+    }
+    function randar5() {
+        var myChart = echarts.init(document.getElementById('main_6'));
+        var dataBJ = [
+            [55,9,56,0.46,18,6,1],
+            [25,11,21,0.65,34,9,2],
+            [56,7,63,0.3,14,5,3],
+            [33,7,29,0.33,16,6,4],
+            [42,24,44,0.76,40,16,5],
+            [82,58,90,1.77,68,33,6],
+            [74,49,77,1.46,48,27,7],
+            [78,55,80,1.29,59,29,8],
+            [267,216,280,4.8,108,64,9],
+            [185,127,216,2.52,61,27,10],
+            [39,19,38,0.57,31,15,11],
+            [41,11,40,0.43,21,7,12],
+            [64,38,74,1.04,46,22,13],
+            [108,79,120,1.7,75,41,14],
+            [108,63,116,1.48,44,26,15],
+            [33,6,29,0.34,13,5,16],
+            [94,66,110,1.54,62,31,17],
+            [186,142,192,3.88,93,79,18],
+            [57,31,54,0.96,32,14,19],
+            [22,8,17,0.48,23,10,20],
+            [39,15,36,0.61,29,13,21],
+            [94,69,114,2.08,73,39,22],
+            [99,73,110,2.43,76,48,23],
+            [31,12,30,0.5,32,16,24],
+            [42,27,43,1,53,22,25],
+            [154,117,157,3.05,92,58,26],
+            [234,185,230,4.09,123,69,27],
+            [160,120,186,2.77,91,50,28],
+            [134,96,165,2.76,83,41,29],
+            [52,24,60,1.03,50,21,30],
+            [46,5,49,0.28,10,6,31]
+        ];
+        var lineStyle = {
+            normal: {
+                width: 1,
+                opacity: 0.5
+            }
+        };
+        option = {
+            tooltip:{},
+            title: {
+                left: 'center',
+                textStyle: {
+                    color: '#08e4ff'
+                }
+            },
+            radar: {
+                indicator: [
+                    {name: '微信', max: 300},
+                    {name: '信用卡', max: 250},
+                    {name: '支付宝', max: 300},
+                    {name: '储蓄卡', max: 5},
+                    {name: '积分支付', max: 200},
+                    {name: 'Other', max: 140},
+                ],
+                shape: 'circle',
+                splitNumber: 5,
+                radius:100,
+                center:['50%','54%'],
+                name: {
+                    textStyle: {
+                        color: '#08e4ff',
+                        fontWeight:'bold',
+                        fontSize:12,
+
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: [
+                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                        ].reverse()
+                    }
+                },
+                splitArea: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#044b59'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '支付偏好',
+                    type: 'radar',
+                    lineStyle: lineStyle,
+                    data: dataBJ,
+                    symbol: 'none',
+                    label:{
+                        normal:{
+                            fontSize:15,
+                        },
+                    },
+                    itemStyle: {
+                        normal: {
+                            fontSize:35,
+                            color: '#08e4ff'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            opacity: 0.1
+                        }
+                    }
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option,true);
+    }
+    abc=function randar() {
+        var myChart = echarts.init(document.getElementById('main_6'));
+        var dataBJ = [
+            [55,9,56,0.46,18,6,1],
+            [25,11,21,0.65,34,9,2],
+            [56,7,63,0.3,14,5,3],
+            [33,7,29,0.33,16,6,4],
+            [42,24,44,0.76,40,16,5],
+            [82,58,90,1.77,68,33,6],
+            [74,49,77,1.46,48,27,7],
+            [78,55,80,1.29,59,29,8],
+            [267,216,280,4.8,108,64,9],
+            [185,127,216,2.52,61,27,10],
+            [39,19,38,0.57,31,15,11],
+            [41,11,40,0.43,21,7,12],
+            [64,38,74,1.04,46,22,13],
+            [108,79,120,1.7,75,41,14],
+            [108,63,116,1.48,44,26,15],
+            [33,6,29,0.34,13,5,16],
+            [94,66,110,1.54,62,31,17],
+            [186,142,192,3.88,93,79,18],
+            [57,31,54,0.96,32,14,19],
+            [22,8,17,0.48,23,10,20],
+            [39,15,36,0.61,29,13,21],
+            [94,69,114,2.08,73,39,22],
+            [99,73,110,2.43,76,48,23],
+            [31,12,30,0.5,32,16,24],
+            [42,27,43,1,53,22,25],
+            [154,117,157,3.05,92,58,26],
+            [234,185,230,4.09,123,69,27],
+            [160,120,186,2.77,91,50,28],
+            [134,96,165,2.76,83,41,29],
+            [52,24,60,1.03,50,21,30],
+            [46,5,49,0.28,10,6,31]
+        ];
+        var lineStyle = {
+            normal: {
+                width: 1,
+                opacity: 0.5
+            }
+        };
+        option = {
+            tooltip:{},
+            title: {
+                left: 'center',
+                textStyle: {
+                    color: '#08e4ff'
+                }
+            },
+            radar: {
+                indicator: [
+                    {name: '王者荣耀', max: 300},
+                    {name: '斗地主', max: 250},
+                    {name: '穿越火线', max: 300},
+                    {name: '英雄杀', max: 5},
+                    {name: '消消乐', max: 200},
+                ],
+                shape: 'circle',
+                radius:100,
+                center:['50%','54%'],
+                splitNumber: 5,
+                name: {
+                    textStyle: {
+                        color: '#08e4ff',
+                        fontWeight:'bold',
+                        fontSize:12,
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: [
+                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                        ].reverse()
+                    }
+                },
+                splitArea: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#044b59'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '游戏偏好',
+                    type: 'radar',
+                    lineStyle: lineStyle,
+                    data: dataBJ,
+                    symbol: 'none',
+                    itemStyle: {
+                        normal: {
+                            color: '#08e4ff',
+
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            opacity: 0.1
+                        }
+                    }
+                },
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option,true);
+    }
+    abc();
+</script>
+<!--鼠标按钮事件-->
+<script>
+    var buttons = $(':button'); //定位所有按钮
+    var total = 0;
+    function click()  // 定义图片切换函数
+    {
+        total ++;
+        if(total == 5)
+            total = 0;
+        (buttons[total]).click()
+    }
+    function auto()  // 每隔2秒连续不断的调用auto()函数
+    {
+        setInterval("click()", 2000);
+    }
+    auto(); //自动执行
+    buttons.on('click', function(){
+        buttons.css("fontSize","15px");
+        buttons.css("fontWeight","bold");
+        var obj=$(this);
+        obj.css("fontSize","18px");
+        obj.css("fontWeight","bold");
+    });
+    buttons.on('mouseover', function(){
+        buttons.css("fontSize","15px");
+        buttons.css("fontWeight","bold");
+        var obj=$(this)
+        obj.css("fontSize","18px");
+        obj.css("fontWeight","bold");
+    });
+</script>
+</body>
+</html>
